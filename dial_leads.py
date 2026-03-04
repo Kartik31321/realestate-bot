@@ -38,7 +38,7 @@ def run_campaign(csv_file, delay_seconds=2, max_calls=None):
     print(f'Starting: {len(leads)} leads | {delay_seconds}s between calls')
     now = datetime.now()
     if now.hour < 9 or now.hour >= 21:
-        print('ERROR: Outside TRAI-allowed calling hours (9AM-9PM). Stopping.')
+        print('ERROR: Outside TRAI-allowed calling hours(9AM-9PM). Stopping.')
         return
  
     for i, lead in enumerate(leads):

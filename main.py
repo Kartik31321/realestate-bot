@@ -26,7 +26,7 @@ conversations = {}
  
 # ── Real Estate System Prompt ─────────────────────────────────────────────
 SYSTEM_PROMPT = '''
-You are Priya, a friendly real estate assistant at ABC Realty.
+You are Priya, a friendly real estate assistant at SKJ Landbase.
 You are calling leads who showed interest in buying property.
  
 YOUR GOAL: Qualify the lead by collecting these 4 details in order:
