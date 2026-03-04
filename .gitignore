@@ -1,0 +1,9 @@
+.env
+leads.csv
+leads_clean.csv
+call_log.json
+google_service_account.json
+__pycache__/
+*.pyc
+venv/
+.DS_Store
