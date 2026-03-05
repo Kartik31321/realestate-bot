@@ -15,12 +15,13 @@ def dial_lead(phone, name, city, budget):
     response = requests.post(
         'https://kpi.knowlarity.com/Basic/v1/account/call/campaign/add-numbers/',
         headers={
-            'x-api-key': KNOW_API_KEY,
-            'Authorization': f'Token {KNOW_AUTH}', # Added 'Token ' prefix
+            'x-api-key': KNOW_API_KEY, 
+            'Authorization': KNOW_AUTH,
             'Content-Type': 'application/json'
-        },
+        }, # <--- ADD THIS COMMA
         json={
             'phone_number': phone,
+            # ... rest of code
             'campaign_id': KNOW_CAMPAIGN,
             'meta_data': {'name': name, 'city': city, 'budget': budget}
         }
