@@ -16,7 +16,7 @@ def dial_lead(phone, name, city, budget):
         'https://kpi.knowlarity.com/Basic/v1/account/call/campaign/add-numbers/',
         headers={
             'x-api-key': KNOW_API_KEY,
-            'Authorization': KNOW_AUTH,
+            'Authorization': f'Token {KNOW_AUTH}', # Added 'Token ' prefix
             'Content-Type': 'application/json'
         },
         json={
