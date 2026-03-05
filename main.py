@@ -159,11 +159,12 @@ async def transfer_to_agent(call_id: str):
     async with aiohttp.ClientSession() as s:
         await s.post(
             'https://kpi.knowlarity.com/Basic/v1/account/call/transfer',
-            headers={
-                'x-api-key': KNOW_API_KEY, 
-                'Authorization': f'Token {KNOW_AUTH}', # Updated with prefix
-                'Content-Type': 'application/json'
-            },
+            # Look for the transfer_to_agent function
+    headers={
+        'x-api-key': KNOW_API_KEY, 
+        'Authorization': KNOW_AUTH, # Match the 'Raw' style here too
+        'Content-Type': 'application/json'
+    },
             json={'call_id': call_id, 'transfer_to': AGENT_EXT}
         )
     print(f'[{call_id}] Transferred to agent ext {AGENT_EXT}')

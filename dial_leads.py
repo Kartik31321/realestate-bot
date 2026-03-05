@@ -16,16 +16,17 @@ def dial_lead(phone, name, city, budget):
         'https://kpi.knowlarity.com/Basic/v1/account/call/campaign/add-numbers/',
         headers={
             'x-api-key': KNOW_API_KEY, 
-            'Authorization': KNOW_AUTH,
+            'Authorization': KNOW_AUTH,  # <--- REMOVE any prefix like 'Token'
             'Content-Type': 'application/json'
-        }, # <--- ADD THIS COMMA
+        },
         json={
             'phone_number': phone,
-            # ... rest of code
             'campaign_id': KNOW_CAMPAIGN,
             'meta_data': {'name': name, 'city': city, 'budget': budget}
         }
     )
+    # This will help us confirm if it worked
+    print(f"DEBUG REASON: {response.text}")
     return response.status_code, response.json()
  
 def run_campaign(csv_file, delay_seconds=2, max_calls=None):
