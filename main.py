@@ -155,11 +155,15 @@ async def sarvam_tts(text: str, lang: str = 'hi-IN') -> str:
 # KNOWLARITY HELPERS
 # ═══════════════════════════════════════════════════════════════════════════
 async def transfer_to_agent(call_id: str):
-    await asyncio.sleep(3)  # let TTS finish playing
+    await asyncio.sleep(3)  
     async with aiohttp.ClientSession() as s:
         await s.post(
             'https://kpi.knowlarity.com/Basic/v1/account/call/transfer',
-            headers={'x-api-key': KNOW_API_KEY, 'Authorization': KNOW_AUTH},
+            headers={
+                'x-api-key': KNOW_API_KEY, 
+                'Authorization': f'Token {KNOW_AUTH}', # Updated with prefix
+                'Content-Type': 'application/json'
+            },
             json={'call_id': call_id, 'transfer_to': AGENT_EXT}
         )
     print(f'[{call_id}] Transferred to agent ext {AGENT_EXT}')
